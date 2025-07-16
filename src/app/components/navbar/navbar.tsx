@@ -6,7 +6,7 @@ import adisaininLogo from "@/../public/adisainin-logo.svg"
 
 const Navbar = ({ setMenu }: { setMenu: (val: string) => void }) => {
 
-  const menu = ["About me", "Resume", "Works"];
+  const menu = ["About Me", "Resume", "Works"];
 
   return (
     <div className="w-full flex px-8 border-y-[1px] border-solid border-[#747474]">
@@ -17,7 +17,7 @@ const Navbar = ({ setMenu }: { setMenu: (val: string) => void }) => {
         height={44}
       />
       <Tabs
-        defaultValue="About me"
+        defaultValue="About Me"
         onValueChange={setMenu}>
         <TabsList className="w-full bg-background justify-start border-b shadow-none rounded-none py-6">
           {menu.map((tab) => (

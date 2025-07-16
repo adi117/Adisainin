@@ -8,13 +8,13 @@ import WorksPage from "./works/page";
 
 export default function Home() {
 
-  const [menu, setMenu] = useState("");
+  const [menu, setMenu] = useState("About Me");
 
   return (
-    <div className="px-4">
+    <div className="px-4 pt-2.5 flex flex-col gap-10">
       <Navbar setMenu={setMenu}/>
 
-      {menu === "About me" && <AboutPage/>}
+      {menu === "About Me" && <AboutPage/>}
       {menu === "Resume" && <ResumePage/>}
       {menu === "Works" && <WorksPage/>}
     </div>
