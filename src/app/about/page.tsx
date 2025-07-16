@@ -16,12 +16,12 @@ const AboutPage = () => {
           priority
           className="w-full h-auto object-cover"
         />
-        <div className="font-medium text-[#874FD4] flex flex-col absolute left-7 top-7">
+        <div className="font-medium text-background flex flex-col absolute left-7 top-7">
           <p className="text-2xl">Hello,</p>
           <p className="text-7xl">My name <br />
             is Adi</p>
         </div>
-        <div className="text-sm text-[#91D1AE] absolute right-7 bottom-7 text-right w-[400px]">
+        <div className="text-sm text-background absolute right-7 bottom-7 text-right w-[400px]">
           A fullstack developer with a creative mindset. Detail-oriented, adaptable, and a bit of a perfectionist, I thrive on collaboration, clear communication, and solving problems with both logic and creativity.
         </div>
       </div>
@@ -95,7 +95,7 @@ const AboutPage = () => {
               href="https://github.com/adi117"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full bg-transparent flex flex-col gap-14 p-5 rounded-3xl border-[1px] border-solid border-white hover:shadow-[0_0_0_4px_rgba(255,255,255,0.25)] transition-shadow duration-200 hover:cursor-pointer">
+              className="w-full bg-transparent flex flex-col gap-14 p-5 rounded-3xl border-[1px] border-solid border-foreground hover:shadow-[0_0_0_4px_rgba(48,41,48,0.25)] transition-shadow duration-200 hover:cursor-pointer">
               <Image
                 src={GithubLogo}
                 alt="Google Logo"
@@ -104,11 +104,11 @@ const AboutPage = () => {
               />
               <div className="flex flex-col gap-3">
                 <div className="flex items-center">
-                  <div className="rounded-full h-1.5 w-1.5 bg-white" />
-                  <div className="w-full h-[1px] bg-white" />
-                  <div className="rounded-full h-1.5 w-1.5 bg-white" />
+                  <div className="rounded-full h-1.5 w-1.5 bg-foreground" />
+                  <div className="w-full h-[1px] bg-foreground" />
+                  <div className="rounded-full h-1.5 w-1.5 bg-foreground" />
                 </div>
-                <p className="text-white font-medium w-full text-right">github.com/adi117</p>
+                <p className="text-foreground font-medium w-full text-right">github.com/adi117</p>
               </div>
             </a>
           </div>

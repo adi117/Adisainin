@@ -25,7 +25,7 @@ const Navbar = ({ setMenu }: { setMenu: (val: string) => void }) => {
               key={tab}
               value={tab}
               className="border-0 rounded-none shadow-none border-b-2 border-b-transparent text-2xl font-medium text-[#747474] py-6
-             data-[state=active]:border-b-white data-[state=active]:text-white"
+             data-[state=active]:border-b-white data-[state=active]:text-foreground"
             >
               {tab}
             </TabsTrigger>
