@@ -11,7 +11,7 @@ export default function Home() {
   const [menu, setMenu] = useState("About Me");
 
   return (
-    <div className="px-4 pt-2.5 flex flex-col gap-10">
+    <div className="px-4 pt-2.5 flex flex-col gap-10 h-[100dvh] overflow-hidden">
       <Navbar setMenu={setMenu}/>
 
       {menu === "About Me" && <AboutPage/>}
