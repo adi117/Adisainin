@@ -9,24 +9,30 @@ import WizardHat from "@/../public/wizard-hat.webp"
 const AboutPage = () => {
   return (
     <div className="flex gap-9 px-4">
-      <div className="relative w-2/5 h-fit">
+      <div
+        className="relative w-2/5"
+        style={{ height: "calc(100vh - 160px)" }}
+      >
         <Image
           src={ProfilePhoto}
           alt="Profile Photo"
           priority
-          className="w-full h-auto object-cover"
+          className="w-full h-full object-cover rounded-4xl"
         />
         <div className="font-medium text-background flex flex-col absolute left-7 top-7">
           <p className="text-2xl">Hello,</p>
-          <p className="text-7xl">My name <br />
-            is Adi</p>
+          <p className="text-7xl">
+            My name <br /> is Adi
+          </p>
         </div>
         <div className="text-sm text-background absolute right-7 bottom-7 text-right w-[400px]">
-          A fullstack developer with a creative mindset. Detail-oriented, adaptable, and a bit of a perfectionist, I thrive on collaboration, clear communication, and solving problems with both logic and creativity.
+          A fullstack developer with a creative mindset. Detail-oriented, adaptable,
+          and a bit of a perfectionist, I thrive on collaboration, clear
+          communication, and solving problems with both logic and creativity.
         </div>
       </div>
       <div className="flex flex-col w-3/5 gap-10">
-      {/* Introduction section */}
+        {/* Introduction section */}
         <Section title="Introduction">
           <div className="flex flex-col gap-9 px-8 py-3 border-[1px] border-solid border-[#747474] rounded-[36px]">
             <h2 className="text-[40px] font-semibold">A wizard based in Surakarta</h2>

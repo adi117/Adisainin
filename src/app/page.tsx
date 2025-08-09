@@ -4,7 +4,7 @@ import { useState } from "react";
 import Navbar from "./components/navbar/navbar";
 import ResumePage from "./resume/page";
 import AboutPage from "./about/page";
-import WorksPage from "./works/page";
+import WorkPage from "./work/page";
 
 export default function Home() {
 
@@ -16,7 +16,7 @@ export default function Home() {
 
       {menu === "About Me" && <AboutPage/>}
       {menu === "Resume" && <ResumePage/>}
-      {menu === "Works" && <WorksPage/>}
+      {menu === "Works" && <WorkPage/>}
     </div>
   );
 }

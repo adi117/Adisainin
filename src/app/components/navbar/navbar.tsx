@@ -9,7 +9,7 @@ const Navbar = ({ setMenu }: { setMenu: (val: string) => void }) => {
   const menu = ["About Me", "Resume", "Works"];
 
   return (
-    <div className="w-full flex px-8 border-y-[1px] border-solid border-[#747474]">
+    <div className="w-full flex gap-12 px-8 border-y-[1px] border-solid border-[#747474]">
       <Image
         src={adisaininLogo}
         alt="Adisainin Logo"
