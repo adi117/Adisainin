@@ -5,6 +5,8 @@ import GithubLogo from "@/../public/github-logo.svg"
 import Linkedinlogo from "@/../public/linkedin-logo.svg"
 import GoogleLogo from "@/../public/google-logo.svg"
 import WizardHat from "@/../public/wizard-hat.webp"
+import Vector1 from "@/../public/Vector-1.svg"
+import Vector2 from "@/../public/Vector.svg"
 
 const AboutPage = () => {
   return (
@@ -61,27 +63,35 @@ const AboutPage = () => {
               href="muhammadiwicaksono@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full bg-[#874FD4] flex flex-col gap-14 p-5 rounded-3xl hover:shadow-[0_0_0_4px_rgba(135,79,212,0.25)] transition-shadow duration-200 hover:cursor-pointer">
+              className="w-full bg-[#874FD4] flex flex-col gap-14 p-5 rounded-3xl hover:shadow-[0_0_0_4px_rgba(135,79,212,0.25)] transition-shadow duration-200 hover:cursor-pointer relative overflow-hidden">
               <Image
                 src={GoogleLogo}
                 alt="Google Logo"
                 width={48}
                 height={48}
               />
-              <div className="flex flex-col gap-3">
+              <div className="flex flex-col gap-3 relative z-10">
                 <div className="flex items-center">
-                  <div className="rounded-full h-1.5 w-1.5 bg-[#3E246E]" />
-                  <div className="w-full h-[1px] bg-[#3E246E]" />
-                  <div className="rounded-full h-1.5 w-1.5 bg-[#3E246E]" />
+                  <div className="rounded-full h-1.5 w-1.5 bg-background" />
+                  <div className="w-full h-[1px] bg-background" />
+                  <div className="rounded-full h-1.5 w-1.5 bg-background" />
                 </div>
-                <p className="text-[#3E246E] font-medium w-full text-right">muhammadiwicaksono@gmail.com</p>
+                <p className="text-background font-medium w-full text-right">muhammadiwicaksono@gmail.com</p>
               </div>
+
+              <Image
+                src={Vector1}
+                alt="Vector shape"
+                width={200}
+                height={200}
+                className="absolute -right-10 -bottom-15 z-0"
+              />
             </a>
             <a
               href="https://www.linkedin.com/in/muhammad-adi-wicaksono/"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full bg-[#91D1AE] flex flex-col gap-14 p-5 rounded-3xl hover:shadow-[0_0_0_4px_rgba(145,209,174,0.25)] transition-shadow duration-200 hover:cursor-pointer">
+              className="w-full bg-[#91D1AE] flex flex-col gap-14 p-5 rounded-3xl hover:shadow-[0_0_0_4px_rgba(145,209,174,0.25)] transition-shadow duration-200 hover:cursor-pointer relative overflow-hidden">
               <Image
                 src={Linkedinlogo}
                 alt="Google Logo"
@@ -96,6 +106,14 @@ const AboutPage = () => {
                 </div>
                 <p className="text-[#215441] font-medium w-full text-right">Muhammad Adi Wicaksono</p>
               </div>
+
+              <Image
+                src={Vector2}
+                alt="Vector shape"
+                width={100}
+                height={100}
+                className="absolute -top-5 right-0"
+              />
             </a>
             <a
               href="https://github.com/adi117"
