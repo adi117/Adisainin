@@ -10,10 +10,10 @@ import Vector2 from "@/../public/Vector.svg"
 
 const AboutPage = () => {
   return (
-    <div className="flex gap-9 px-4">
+    <div className="flex gap-9 px-4 overflow-hidden" style={{ height: "calc(100vh - 160px)" }}>
       <div
         className="relative w-2/5"
-        style={{ height: "calc(100vh - 160px)" }}
+        style={{ height: "100%" }}
       >
         <Image
           src={ProfilePhoto}
@@ -33,110 +33,112 @@ const AboutPage = () => {
           communication, and solving problems with both logic and creativity.
         </div>
       </div>
-      <div className="flex flex-col w-3/5 gap-10">
-        {/* Introduction section */}
-        <Section title="Introduction">
-          <div className="flex flex-col gap-9 px-8 py-3 border-[1px] border-solid border-[#747474] rounded-[36px]">
-            <h2 className="text-[40px] font-semibold">A wizard based in Surakarta</h2>
-            <div className="flex relative">
-              <p className="opacity-50 pr-44 font-medium">
-                Once a UI/UX spellcaster, now a fullstack wizard—I craft seamless digital experiences from pixel to production. With roots in world and interaction design, I blend creative vision with technical precision to build products that are as powerful as they are beautiful.
-                <br />
-                <br />
-                Let’s make the web more magical—one pixel at a time.</p>
+      <div className="w-3/5 h-full overflow-y-scroll max-h-full hide-scrollbar pb-10">
+        <div className="flex flex-col gap-10">
+          {/* Introduction section */}
+          <Section title="Introduction">
+            <div className="flex flex-col gap-9 px-8 py-3 border-[1px] border-solid border-[#747474] rounded-[36px]">
+              <h2 className="text-[40px] font-semibold">A wizard based in Surakarta</h2>
+              <div className="flex relative">
+                <p className="opacity-50 pr-44 font-medium">
+                  Once a UI/UX spellcaster, now a fullstack wizard—I craft seamless digital experiences from pixel to production. With roots in world and interaction design, I blend creative vision with technical precision to build products that are as powerful as they are beautiful.
+                  <br />
+                  <br />
+                  Let&apos;s make the web more magical—one pixel at a time.</p>
 
-              <Image
-                src={WizardHat}
-                alt="Wizard Hat"
-                priority
-                className="w-40 h-40 object-cover absolute right-0 bottom-0"
-              />
+                <Image
+                  src={WizardHat}
+                  alt="Wizard Hat"
+                  priority
+                  className="w-40 h-40 object-cover absolute right-0 bottom-0"
+                />
+              </div>
             </div>
-          </div>
-        </Section>
-        {/* divider line */}
-        <div className="w-full bg-[#747474] h-[1px]" />
-        {/* contact card */}
-        <Section title="Get In Touch">
-          <div className="flex w-full gap-8">
-            <a
-              href="muhammadiwicaksono@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full bg-[#874FD4] flex flex-col gap-14 p-5 rounded-3xl hover:shadow-[0_0_0_4px_rgba(135,79,212,0.25)] transition-shadow duration-200 hover:cursor-pointer relative overflow-hidden">
-              <Image
-                src={GoogleLogo}
-                alt="Google Logo"
-                width={48}
-                height={48}
-              />
-              <div className="flex flex-col gap-3 relative z-10">
-                <div className="flex items-center">
-                  <div className="rounded-full h-1.5 w-1.5 bg-background" />
-                  <div className="w-full h-[1px] bg-background" />
-                  <div className="rounded-full h-1.5 w-1.5 bg-background" />
+          </Section>
+          {/* divider line */}
+          <div className="w-full bg-[#747474] h-[1px]" />
+          {/* contact card */}
+          <Section title="Get In Touch">
+            <div className="flex w-full gap-8">
+              <a
+                href="mailto:muhammadiwicaksono@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full bg-[#874FD4] flex flex-col gap-14 p-5 rounded-3xl hover:shadow-[0_0_0_4px_rgba(135,79,212,0.25)] transition-shadow duration-200 hover:cursor-pointer relative overflow-hidden">
+                <Image
+                  src={GoogleLogo}
+                  alt="Google Logo"
+                  width={48}
+                  height={48}
+                />
+                <div className="flex flex-col gap-3 relative z-10">
+                  <div className="flex items-center">
+                    <div className="rounded-full h-1.5 w-1.5 bg-background" />
+                    <div className="w-full h-[1px] bg-background" />
+                    <div className="rounded-full h-1.5 w-1.5 bg-background" />
+                  </div>
+                  <p className="text-background font-medium w-full text-right">muhammadiwicaksono@gmail.com</p>
                 </div>
-                <p className="text-background font-medium w-full text-right">muhammadiwicaksono@gmail.com</p>
-              </div>
 
-              <Image
-                src={Vector1}
-                alt="Vector shape"
-                width={200}
-                height={200}
-                className="absolute -right-10 -bottom-15 z-0"
-              />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/muhammad-adi-wicaksono/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full bg-[#91D1AE] flex flex-col gap-14 p-5 rounded-3xl hover:shadow-[0_0_0_4px_rgba(145,209,174,0.25)] transition-shadow duration-200 hover:cursor-pointer relative overflow-hidden">
-              <Image
-                src={Linkedinlogo}
-                alt="Google Logo"
-                width={48}
-                height={48}
-              />
-              <div className="flex flex-col gap-3">
-                <div className="flex items-center">
-                  <div className="rounded-full h-1.5 w-1.5 bg-[#215441]" />
-                  <div className="w-full h-[1px] bg-[#215441]" />
-                  <div className="rounded-full h-1.5 w-1.5 bg-[#215441]" />
+                <Image
+                  src={Vector1}
+                  alt="Vector shape"
+                  width={200}
+                  height={200}
+                  className="absolute -right-10 -bottom-15 z-0"
+                />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/muhammad-adi-wicaksono/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full bg-[#91D1AE] flex flex-col gap-14 p-5 rounded-3xl hover:shadow-[0_0_0_4px_rgba(145,209,174,0.25)] transition-shadow duration-200 hover:cursor-pointer relative overflow-hidden">
+                <Image
+                  src={Linkedinlogo}
+                  alt="LinkedIn Logo"
+                  width={48}
+                  height={48}
+                />
+                <div className="flex flex-col gap-3">
+                  <div className="flex items-center">
+                    <div className="rounded-full h-1.5 w-1.5 bg-[#215441]" />
+                    <div className="w-full h-[1px] bg-[#215441]" />
+                    <div className="rounded-full h-1.5 w-1.5 bg-[#215441]" />
+                  </div>
+                  <p className="text-[#215441] font-medium w-full text-right">Muhammad Adi Wicaksono</p>
                 </div>
-                <p className="text-[#215441] font-medium w-full text-right">Muhammad Adi Wicaksono</p>
-              </div>
 
-              <Image
-                src={Vector2}
-                alt="Vector shape"
-                width={100}
-                height={100}
-                className="absolute -top-5 right-0"
-              />
-            </a>
-            <a
-              href="https://github.com/adi117"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full bg-transparent flex flex-col gap-14 p-5 rounded-3xl border-[1px] border-solid border-foreground hover:shadow-[0_0_0_4px_rgba(48,41,48,0.25)] transition-shadow duration-200 hover:cursor-pointer">
-              <Image
-                src={GithubLogo}
-                alt="Google Logo"
-                width={48}
-                height={48}
-              />
-              <div className="flex flex-col gap-3">
-                <div className="flex items-center">
-                  <div className="rounded-full h-1.5 w-1.5 bg-foreground" />
-                  <div className="w-full h-[1px] bg-foreground" />
-                  <div className="rounded-full h-1.5 w-1.5 bg-foreground" />
+                <Image
+                  src={Vector2}
+                  alt="Vector shape"
+                  width={100}
+                  height={100}
+                  className="absolute -top-5 right-0"
+                />
+              </a>
+              <a
+                href="https://github.com/adi117"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full bg-transparent flex flex-col gap-14 p-5 rounded-3xl border-[1px] border-solid border-foreground hover:shadow-[0_0_0_4px_rgba(48,41,48,0.25)] transition-shadow duration-200 hover:cursor-pointer">
+                <Image
+                  src={GithubLogo}
+                  alt="GitHub Logo"
+                  width={48}
+                  height={48}
+                />
+                <div className="flex flex-col gap-3">
+                  <div className="flex items-center">
+                    <div className="rounded-full h-1.5 w-1.5 bg-foreground" />
+                    <div className="w-full h-[1px] bg-foreground" />
+                    <div className="rounded-full h-1.5 w-1.5 bg-foreground" />
+                  </div>
+                  <p className="text-foreground font-medium w-full text-right">github.com/adi117</p>
                 </div>
-                <p className="text-foreground font-medium w-full text-right">github.com/adi117</p>
-              </div>
-            </a>
-          </div>
-        </Section>
+              </a>
+            </div>
+          </Section>
+        </div>
       </div>
     </div>
   )
