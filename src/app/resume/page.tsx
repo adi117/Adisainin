@@ -28,6 +28,8 @@ const ResumePage = () => {
   const leftRef = useRef<HTMLDivElement>(null);
   const centerRef = useRef<HTMLDivElement>(null);
   const rightRef = useRef<HTMLDivElement>(null);
+  const leftLine = useRef<HTMLDivElement>(null);
+  const rightLine = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const leftCtx = gsap.context(() => {
@@ -68,10 +70,27 @@ const ResumePage = () => {
       }, "-=0.5");
     }, rightRef);
 
+    const lineCtx = gsap.context(() => {
+      gsap.from(leftLine.current, {
+        y: 200,
+        opacity: 0,
+        duration: 3,
+        ease: "power3.inOut"
+      });
+
+      gsap.from(rightLine.current, {
+        y: 200,
+        opacity: 0,
+        duration: 3,
+        ease: "power3.inOut"
+      });
+    })
+
     return () => {
       leftCtx.revert();
       centerCtx.revert();
       rightCtx.revert();
+      lineCtx.revert();
     };
   }, []);
 
@@ -151,15 +170,15 @@ const ResumePage = () => {
 
       </div>
       {/* divider */}
-      <div className='h-full w-1 bg-foreground py-10' />
+      <div ref={leftLine} className='h-full w-1 bg-foreground py-10' />
 
       <div ref={centerRef} className='w-full h-full overflow-y-scroll max-h-full hide-scrollbar pb-10'>
-        <div className="flex flex-col gap-9 h-fit">
-          <h2 className="card text-[40px] font-semibold shrink-0">Expertise</h2>
+        <div className="flex flex-col gap-9 h-fit mb-5">
+          <h2 className="card text-3xl font-semibold shrink-0">Expertise</h2>
           <p className='card font-medium text-xl pb-3 border-b-[1px] border-solid border-foreground'>UI/UX, Interaction Design, Design Systems, Frontend Dev, Fullstack Dev, Prototyping, Visual Design, Responsive UI, Code Architecture, Design Thinking.</p>
         </div>
-        <div className="flex flex-col gap-9 h-fit">
-          <h2 className="card text-[40px] font-semibold shrink-0">Hardkill</h2>
+        <div className="flex flex-col gap-9 h-fit mb-5">
+          <h2 className="card text-3xl font-semibold shrink-0">Hardskill</h2>
           <div className='card flex flex-col gap-6 p-3 rounded-4xl bg-foreground'>
             <Image
               src={LaptopImage}
@@ -188,7 +207,7 @@ const ResumePage = () => {
           </div>
         </div>
         <div className="flex flex-col gap-9 h-fit">
-          <h2 className="card text-[40px] font-semibold shrink-0">Softskill</h2>
+          <h2 className="card text-3xl font-semibold shrink-0">Softskill</h2>
           <div>
             <div className='flex flex-wrap gap-3'>
               <p className='card text-background bg-foreground font-semibold py-1 px-3 rounded-full w-fit'>problemSolving</p>
@@ -205,12 +224,12 @@ const ResumePage = () => {
         </div>
       </div>
       {/* divider */}
-      <div className='h-full w-1 bg-foreground py-10' />
+      <div ref={rightLine} className='h-full w-1 bg-foreground py-10' />
       <div ref={rightRef} className="w-full">
         <Section title='Education'>
           <div className='flex flex-col gap-9 overflow-y-scroll max-h-full pb-10 hide-scrollbar'>
             <div className="card w-full bg-[#91D1AE] flex flex-col gap-5 p-5 rounded-3xl transition-shadow duration-200">
-              <p className='text-foreground bg-background font-semibold px-2 py-0.5 rounded-full w-fit'>2025-Present</p>
+              <p className='text-foreground bg-background font-semibold px-2 py-0.5 rounded-full w-fit'>2025</p>
               <div className='flex flex-col text-foreground font-medium'>
                 <p className='text-xl opacity-50'>Bootcamp</p>
                 <p className='text-2xl'>
