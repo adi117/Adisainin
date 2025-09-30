@@ -1,3 +1,5 @@
+"use client"
+
 import Section from '../components/section/section';
 import Image from 'next/image';
 import LaptopImage from '../../../public/laptop-image.webp'
@@ -8,6 +10,8 @@ import PostgresLogo from '../../../public/postgresql-plain.svg'
 import ReactLogo from '../../../public/react-original.svg'
 import SpringLogo from '../../../public/spring-original.svg'
 import TailwindLogo from '../../../public/tailwindcss-plain.svg'
+import gsap from 'gsap';
+import { useEffect, useRef } from 'react';
 
 const techLogos = [
   { src: DockerLogo, alt: "Docker" },
@@ -21,12 +25,62 @@ const techLogos = [
 
 const ResumePage = () => {
 
+  const leftRef = useRef<HTMLDivElement>(null);
+  const centerRef = useRef<HTMLDivElement>(null);
+  const rightRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const leftCtx = gsap.context(() => {
+      const q = gsap.utils.selector(leftRef);
+      const tl = gsap.timeline({ defaults: { ease: "power3.inOut" } });
+
+      tl.from(leftRef.current, { y: 100, opacity: 0, duration: 1 });
+      tl.from(q(".card"), {
+        y: 60,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.8,
+      }, "-=0.5");
+    }, leftRef);
+
+    const centerCtx = gsap.context(() => {
+      const q = gsap.utils.selector(centerRef);
+      const tl = gsap.timeline({ defaults: { ease: "power3.inOut" } });
+
+      tl.from(q(".card"), {
+        y: 60,
+        opacity: 0,
+        duration: 2,
+        stagger: 0.15,
+      });
+    }, centerRef);
+
+    const rightCtx = gsap.context(() => {
+      const q = gsap.utils.selector(rightRef);
+      const tl = gsap.timeline({ defaults: { ease: "power3.inOut" } });
+
+      tl.from(rightRef.current, { y: 100, opacity: 0, duration: 1 });
+      tl.from(q(".card"), {
+        y: 60,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.8,
+      }, "-=0.5");
+    }, rightRef);
+
+    return () => {
+      leftCtx.revert();
+      centerCtx.revert();
+      rightCtx.revert();
+    };
+  }, []);
+
   return (
     <div className="px-4 flex w-full justify-between gap-5 overflow-hidden">
-      <div className="w-full">
+      <div ref={leftRef} className="w-full">
         <Section title='Experience'>
           <div className='flex flex-col gap-9 overflow-y-scroll max-h-full pb-10 hide-scrollbar'>
-            <div className="w-full bg-[#874FD4] flex flex-col gap-5 p-5 rounded-3xl transition-shadow duration-200">
+            <div className="card w-full bg-[#874FD4] flex flex-col gap-5 p-5 rounded-3xl transition-shadow duration-200">
               <p className='text-foreground bg-background font-semibold px-2 py-0.5 rounded-full w-fit'>2024</p>
               <div className='flex flex-col text-background font-medium'>
                 <p className='text-xl opacity-50'>Vektora Studio</p>
@@ -48,7 +102,7 @@ const ResumePage = () => {
                 </div>
               </div>
             </div>
-            <div className="w-full bg-[#91D1AE] flex flex-col gap-5 p-5 rounded-3xl transition-shadow duration-200">
+            <div className="card w-full bg-[#91D1AE] flex flex-col gap-5 p-5 rounded-3xl transition-shadow duration-200">
               <p className='text-foreground bg-background font-semibold px-2 py-0.5 rounded-full w-fit'>2023</p>
               <div className='flex flex-col text-foreground font-medium'>
                 <p className='text-xl opacity-50'>SkillMapper</p>
@@ -70,7 +124,7 @@ const ResumePage = () => {
                 </div>
               </div>
             </div>
-            <div className="border-[1px] border-solid border-foreground w-full bg-transparent flex flex-col gap-5 p-5 rounded-3xl transition-shadow duration-200">
+            <div className="card border-[1px] border-solid border-foreground w-full bg-transparent flex flex-col gap-5 p-5 rounded-3xl transition-shadow duration-200">
               <p className='text-background bg-foreground font-semibold px-2 py-0.5 rounded-full w-fit'>2022</p>
               <div className='flex flex-col text-foreground font-medium'>
                 <p className='text-xl opacity-50'>Atourin</p>
@@ -99,14 +153,14 @@ const ResumePage = () => {
       {/* divider */}
       <div className='h-full w-1 bg-foreground py-10' />
 
-      <div className='w-full h-full overflow-y-scroll max-h-full hide-scrollbar pb-10'>
+      <div ref={centerRef} className='w-full h-full overflow-y-scroll max-h-full hide-scrollbar pb-10'>
         <div className="flex flex-col gap-9 h-fit">
-          <h2 className="text-[40px] font-semibold shrink-0">Expertise</h2>
-          <p className='font-medium text-xl pb-3 border-b-[1px] border-solid border-foreground'>UI/UX, Interaction Design, Design Systems, Frontend Dev, Fullstack Dev, Prototyping, Visual Design, Responsive UI, Code Architecture, Design Thinking.</p>
+          <h2 className="card text-[40px] font-semibold shrink-0">Expertise</h2>
+          <p className='card font-medium text-xl pb-3 border-b-[1px] border-solid border-foreground'>UI/UX, Interaction Design, Design Systems, Frontend Dev, Fullstack Dev, Prototyping, Visual Design, Responsive UI, Code Architecture, Design Thinking.</p>
         </div>
         <div className="flex flex-col gap-9 h-fit">
-          <h2 className="text-[40px] font-semibold shrink-0">Hardkill</h2>
-          <div className='flex flex-col gap-6 p-3 rounded-4xl bg-foreground'>
+          <h2 className="card text-[40px] font-semibold shrink-0">Hardkill</h2>
+          <div className='card flex flex-col gap-6 p-3 rounded-4xl bg-foreground'>
             <Image
               src={LaptopImage}
               alt='Laptop Image'
@@ -134,28 +188,28 @@ const ResumePage = () => {
           </div>
         </div>
         <div className="flex flex-col gap-9 h-fit">
-          <h2 className="text-[40px] font-semibold shrink-0">Softskill</h2>
+          <h2 className="card text-[40px] font-semibold shrink-0">Softskill</h2>
           <div>
             <div className='flex flex-wrap gap-3'>
-              <p className='text-background bg-foreground font-semibold py-1 px-3 rounded-full w-fit'>problemSolving</p>
-              <p className='text-foreground bg-background font-semibold py-1 px-3 rounded-full w-fit border-[1px] border-solid border-foreground'>adaptability</p>
-              <p className='text-background bg-foreground font-semibold py-1 px-3 rounded-full w-fit'>collaboration</p>
-              <p className='text-foreground bg-background font-semibold py-1 px-3 rounded-full w-fit border-[1px] border-solid border-foreground'>communication</p>
-              <p className='text-foreground bg-background font-semibold py-1 px-3 rounded-full w-fit border-[1px] border-solid border-foreground'>creativity</p>
-              <p className='text-foreground bg-background font-semibold py-1 px-3 rounded-full w-fit border-[1px] border-solid border-foreground'>attentionToDetail</p>
-              <p className='text-background bg-foreground font-semibold py-1 px-3 rounded-full w-fit'>empathy</p>
-              <p className='text-background bg-foreground font-semibold py-1 px-3 rounded-full w-fit'>curiosity</p>
-              <p className='text-foreground bg-background font-semibold py-1 px-3 rounded-full w-fit border-[1px] border-solid border-foreground'>timeManagement</p>
+              <p className='card text-background bg-foreground font-semibold py-1 px-3 rounded-full w-fit'>problemSolving</p>
+              <p className='card text-foreground bg-background font-semibold py-1 px-3 rounded-full w-fit border-[1px] border-solid border-foreground'>adaptability</p>
+              <p className='card text-background bg-foreground font-semibold py-1 px-3 rounded-full w-fit'>collaboration</p>
+              <p className='card text-foreground bg-background font-semibold py-1 px-3 rounded-full w-fit border-[1px] border-solid border-foreground'>communication</p>
+              <p className='card text-foreground bg-background font-semibold py-1 px-3 rounded-full w-fit border-[1px] border-solid border-foreground'>creativity</p>
+              <p className='card text-foreground bg-background font-semibold py-1 px-3 rounded-full w-fit border-[1px] border-solid border-foreground'>attentionToDetail</p>
+              <p className='card text-background bg-foreground font-semibold py-1 px-3 rounded-full w-fit'>empathy</p>
+              <p className='card text-background bg-foreground font-semibold py-1 px-3 rounded-full w-fit'>curiosity</p>
+              <p className='card text-foreground bg-background font-semibold py-1 px-3 rounded-full w-fit border-[1px] border-solid border-foreground'>timeManagement</p>
             </div>
           </div>
         </div>
       </div>
       {/* divider */}
       <div className='h-full w-1 bg-foreground py-10' />
-      <div className="w-full">
+      <div ref={rightRef} className="w-full">
         <Section title='Education'>
           <div className='flex flex-col gap-9 overflow-y-scroll max-h-full pb-10 hide-scrollbar'>
-            <div className="w-full bg-[#91D1AE] flex flex-col gap-5 p-5 rounded-3xl transition-shadow duration-200">
+            <div className="card w-full bg-[#91D1AE] flex flex-col gap-5 p-5 rounded-3xl transition-shadow duration-200">
               <p className='text-foreground bg-background font-semibold px-2 py-0.5 rounded-full w-fit'>2025-Present</p>
               <div className='flex flex-col text-foreground font-medium'>
                 <p className='text-xl opacity-50'>Bootcamp</p>
@@ -166,7 +220,7 @@ const ResumePage = () => {
                 </p>
               </div>
             </div>
-            <div className="border-[1px] border-solid border-foreground w-full bg-transparent flex flex-col gap-5 p-5 rounded-3xl transition-shadow duration-200">
+            <div className="card border-[1px] border-solid border-foreground w-full bg-transparent flex flex-col gap-5 p-5 rounded-3xl transition-shadow duration-200">
               <p className='text-background bg-foreground font-semibold px-2 py-0.5 rounded-full w-fit'>2023-2024</p>
               <div className='flex flex-col text-foreground font-medium'>
                 <p className='text-xl opacity-50'>Bootcamp</p>
@@ -177,7 +231,7 @@ const ResumePage = () => {
                 </p>
               </div>
             </div>
-            <div className="w-full bg-[#874FD4] flex flex-col gap-5 p-5 rounded-3xl transition-shadow duration-200">
+            <div className="card w-full bg-[#874FD4] flex flex-col gap-5 p-5 rounded-3xl transition-shadow duration-200">
               <p className='text-foreground bg-background font-semibold px-2 py-0.5 rounded-full w-fit'>2019-2023</p>
               <div className='flex flex-col text-background font-medium'>
                 <p className='text-xl opacity-50'>Bachelor Degree</p>

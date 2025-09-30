@@ -24,7 +24,7 @@ const AboutPage = () => {
         <div className="font-medium text-background flex flex-col absolute left-7 top-7">
           <p className="text-2xl">Hello,</p>
           <p className="text-7xl">
-            My name <br /> is Adi
+            I&apos;m Adi
           </p>
         </div>
         <div className="text-sm text-background absolute right-7 bottom-7 text-right w-[400px]">
