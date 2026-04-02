@@ -33,10 +33,10 @@ export default function Home() {
   }, [menu]);
 
   return (
-    <div className="px-4 pt-2.5 md:px-6 lg:px-8 flex flex-col gap-6 md:gap-10 w-full h-[100dvh] overflow-hidden bg-background">
+    <div className="flex flex-col w-full h-[100dvh] overflow-hidden bg-background">
       <Navbar setMenu={setMenu}/>
 
-      <div ref={contentRef} className="flex-1 overflow-hidden">
+      <div ref={contentRef} className="flex-1 overflow-hidden px-4 pt-2.5 md:px-6 lg:px-8 md:pt-0">
         {menu === "About Me" && <AboutPage/>}
         {menu === "Resume" && <ResumePage/>}
         {menu === "Works" && <WorkPage/>}

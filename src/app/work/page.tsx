@@ -71,11 +71,12 @@ const WorkPage = () => {
   }, [selectedPortfolio]);
 
   return (
-    <div className="w-full h-full text-center justify-end items-center px-4 md:px-6 lg:px-8">
+    <div className="w-full h-full flex flex-col md:flex-row text-left justify-end items-center">
+      {/* Desktop Layout */}
       <Tabs
         value={selectedPortfolio}
         onValueChange={setSelectedPortfolio}
-        className="h-full relative flex flex-col md:flex-row">
+        className="hidden md:flex w-full h-full relative flex-col md:flex-row px-4 md:px-6 lg:px-8">
         <div className="w-full md:w-1/4 h-auto md:h-10/12 overflow-y-auto md:overflow-y-scroll hide-scrollbar">
           <TabsList ref={leftRef} className="flex md:flex-col gap-2 w-full items-start justify-start overflow-x-auto md:overflow-y-scroll hide-scrollbar">
             {portfolioList.map((portfolio) => (
@@ -111,6 +112,58 @@ const WorkPage = () => {
                 && <JavaAuth />}
         </TabsContent>
       </Tabs>
+
+      {/* Mobile List View */}
+      <div className="md:hidden w-full h-full flex flex-col overflow-hidden">
+        {!selectedPortfolio ? (
+          <div className="w-full h-full overflow-y-auto hide-scrollbar p-4">
+            <h2 className="text-2xl font-semibold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">My Works</h2>
+            <div className="space-y-3">
+              {portfolioList.map((portfolio) => (
+                <button
+                  key={portfolio.title}
+                  onClick={() => setSelectedPortfolio(portfolio.title)}
+                  className="w-full text-left p-4 rounded-xl border-[1px] border-primary/20 bg-gradient-to-br from-primary/5 to-transparent hover:from-primary/15 hover:border-primary/60 transition-all duration-300"
+                >
+                  <div className="flex gap-4 items-center">
+                    <Image
+                      src={portfolio.imageSrc}
+                      alt={portfolio.title}
+                      width={80}
+                      height={80}
+                      className='w-20 h-20 object-cover rounded-lg'
+                    />
+                    <div className="flex-1">
+                      <p className="text-lg font-semibold text-foreground">{portfolio.title}</p>
+                      <p className="text-sm text-secondary font-medium">{portfolio.role}</p>
+                      {portfolio.date && <p className="text-xs text-foreground/60 mt-1">{portfolio.date}</p>}
+                    </div>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+        ) : (
+          <div className="w-full h-full flex flex-col">
+            <button
+              onClick={() => setSelectedPortfolio(portfolioList[0].title)}
+              className="px-4 py-3 bg-background/50 border-b-[1px] border-[#2D2D2D] text-foreground/80 hover:text-foreground transition-colors duration-300"
+            >
+              ← Back to Works
+            </button>
+            <div className="flex-1 overflow-y-auto hide-scrollbar p-4">
+              {selectedPortfolio === "Purwafest"
+                ? <Purwafest />
+                : selectedPortfolio === "Grocereach"
+                  ? <Grocereach />
+                  : selectedPortfolio === "Mai Home"
+                    ? <MaiHome />
+                    : selectedPortfolio === "Java Auth"
+                    && <JavaAuth />}
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   )
 }

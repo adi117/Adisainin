@@ -138,14 +138,6 @@
 }
 
 /* Custom animations for enhanced visual appeal */
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-}
 
 @keyframes glow {
   0%, 100% {
@@ -188,10 +180,6 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
 }
 
 .animate-glow {

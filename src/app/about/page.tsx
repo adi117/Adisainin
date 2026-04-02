@@ -38,15 +38,6 @@ const AboutPage = () => {
         opacity: 0,
         duration: 2,
       });
-      
-      // Add subtle floating animation
-      gsap.to(imageRef.current, {
-        y: 10,
-        duration: 3,
-        yoyo: true,
-        repeat: -1,
-        ease: "sine.inOut",
-      });
     })
 
     return () => {
@@ -153,11 +144,11 @@ const AboutPage = () => {
                   />
                   <div className="flex flex-col gap-3 relative z-10">
                     <div className="flex items-center">
-                      <div className="rounded-full h-1.5 w-1.5 bg-neutral-dark" />
-                      <div className="w-full h-[1px] bg-neutral-dark" />
-                      <div className="rounded-full h-1.5 w-1.5 bg-neutral-dark" />
+                      <div className="rounded-full h-1.5 w-1.5 bg-foreground" />
+                      <div className="w-full h-[1px] bg-foreground" />
+                      <div className="rounded-full h-1.5 w-1.5 bg-foreground" />
                     </div>
-                    <p className="text-neutral-dark font-medium w-full text-right">Muhammad Adi Wicaksono</p>
+                    <p className="text-foreground font-medium w-full text-right">Muhammad Adi Wicaksono</p>
                   </div>
 
                   <Image
