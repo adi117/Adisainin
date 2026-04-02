@@ -22,22 +22,29 @@ const AboutPage = () => {
       const q = gsap.utils.selector(introductionRef);
       const tl = gsap.timeline({ defaults: { ease: "power3.inOut" } });
 
-      tl.from(introductionRef.current, { y: 100, opacity: 0, duration: 1.2 });
-      tl.from(q(".card"), {
-        y: 60,
-        opacity: 0,
-        duration: 1.2,
-        stagger: 0.12,
-      }, "-=0.6");
+      tl.fromTo(introductionRef.current, 
+        { y: 100, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1.2, clearProps: "none" }
+      );
+      tl.fromTo(q(".card"),
+        { y: 60, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1.2,
+          stagger: 0.12,
+          clearProps: "none"
+        },
+        "-=0.6"
+      );
     }, introductionRef);
 
     const imageCtx = gsap.context(() => {
       const tl = gsap.timeline({ defaults: { ease: "power3.inOut" } });
-      tl.from(imageRef.current, {
-        y: 200,
-        opacity: 0,
-        duration: 2,
-      });
+      tl.fromTo(imageRef.current, 
+        { y: 200, opacity: 0 },
+        { y: 0, opacity: 1, duration: 2, clearProps: "none" }
+      );
     })
 
     return () => {
@@ -156,7 +163,7 @@ const AboutPage = () => {
                     alt="Vector shape"
                     width={100}
                     height={100}
-                    className="absolute -top-5 right-0 z-0 opacity-20 group-hover:opacity-40 transition-opacity duration-300"
+                    className="absolute -top-5 right-0 z-0 opacity-20 group-hover:opacity-40 transition-opacity duration-300 w-auto h-auto"
                   />
                 </a>
                 <a
@@ -169,7 +176,7 @@ const AboutPage = () => {
                     alt="GitHub Logo"
                     width={48}
                     height={48}
-                    className="group-hover:text-accent transition-colors duration-300"
+                    className="group-hover:text-accent transition-colors duration-300 w-auto h-auto"
                   />
                   <div className="flex flex-col gap-3">
                     <div className="flex items-center">
