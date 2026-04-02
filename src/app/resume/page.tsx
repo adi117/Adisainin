@@ -110,9 +110,9 @@ const ResumePage = () => {
   }, []);
 
   return (
-    <div className="w-full h-full flex flex-col">
+    <div className="w-full h-full flex flex-col px-4 md:px-6 lg:px-8">
       {/* Mobile Tabs */}
-      <div className="md:hidden flex gap-2 px-4 py-3 border-b-[1px] border-[#2D2D2D] bg-background/50 backdrop-blur-sm sticky top-0 z-10">
+      <div className="md:hidden flex gap-2 py-3 border-b-[1px] border-[#2D2D2D] bg-background/50 backdrop-blur-sm sticky top-0 z-10 -mx-4 md:-mx-6 lg:-mx-8 px-4 md:px-6 lg:px-8">
         {['expertise', 'education', 'experience'].map((tab) => (
           <button
             key={tab}

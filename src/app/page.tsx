@@ -36,7 +36,7 @@ export default function Home() {
     <div className="flex flex-col w-full h-[100dvh] overflow-hidden bg-background">
       <Navbar setMenu={setMenu}/>
 
-      <div ref={contentRef} className="flex-1 overflow-hidden px-4 pt-2.5 md:px-6 lg:px-8 md:pt-0">
+      <div ref={contentRef} className="flex-1 overflow-hidden">
         {menu === "About Me" && <AboutPage/>}
         {menu === "Resume" && <ResumePage/>}
         {menu === "Works" && <WorkPage/>}
