@@ -77,23 +77,23 @@ const WorkPage = () => {
         onValueChange={setSelectedPortfolio}
         className="h-full relative flex flex-row">
         <div className="w-1/4 h-10/12 overflow-y-scroll hide-scrollbar">
-          <TabsList ref={leftRef} className="flex flex-col gap-1 w-full items-start justify-start h-full overflow-y-scroll hide-scrollbar">
+          <TabsList ref={leftRef} className="flex flex-col gap-2 w-full items-start justify-start h-full overflow-y-scroll hide-scrollbar">
             {portfolioList.map((portfolio) => (
-              <TabsTrigger key={portfolio.title} value={portfolio.title} className={cn("w-full card")}>
-                <div className={cn('card flex flex-col gap-6 p-3 rounded-xl border-[1px] border-foreground/5', selectedPortfolio === portfolio.title && "border-[1px] border-foreground shadow-[0_0_0_4px_rgba(48,41,48,0.25)]")}>
+              <TabsTrigger key={portfolio.title} value={portfolio.title} className={cn("w-full card transition-all duration-300")}>
+                <div className={cn('card flex flex-col gap-6 p-3 rounded-xl border-[1px] border-primary/20 bg-gradient-to-br from-primary/5 to-transparent hover:from-primary/15 transition-all duration-300', selectedPortfolio === portfolio.title && "border-primary/60 shadow-[0_0_15px_rgba(107,70,193,0.3)] bg-gradient-to-br from-primary/20 to-secondary/10")}>
                   <Image
                     src={portfolio.imageSrc}
                     alt='Laptop Image'
                     width={200}
                     height={200}
-                    className='w-full h-auto rounded-xl'
+                    className='w-full h-auto rounded-xl hover:shadow-[0_0_20px_rgba(107,70,193,0.2)] transition-shadow duration-300'
                   />
                   <div className="flex flex-col gap-2">
-                    <div className="flex justify-between text-foreground/50">
-                      <p className="">{portfolio.date}</p>
-                      <p>{portfolio.role}</p>
+                    <div className="flex justify-between text-foreground/60 text-sm">
+                      <p className="font-medium">{portfolio.date}</p>
+                      <p className="text-secondary font-semibold">{portfolio.role}</p>
                     </div>
-                    <p className="text-xl text-foreground">{portfolio.title}</p>
+                    <p className="text-xl text-foreground font-semibold">{portfolio.title}</p>
                   </div>
                 </div>
               </TabsTrigger>

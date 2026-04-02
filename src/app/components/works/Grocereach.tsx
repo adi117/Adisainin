@@ -9,7 +9,7 @@ const Grocereach = () => {
       <div className="flex flex-col gap-5 w-full items-center">
         <h2 className="text-left font-medium w-full">Grocereach</h2>
         <div className="flex gap-2 w-full items-stretch py-2">
-          <div className="w-0.5 bg-[#91D1AE]" />
+          <div className="w-0.5 bg-gradient-to-b from-secondary to-accent" />
           <span className="text-xl text-foreground/60">
             Place where you can buy any grocery from your home
           </span>
@@ -110,31 +110,31 @@ const Grocereach = () => {
           </p>
           <ul className="text-xl text-foreground/60 list-disc marker:text-sm marker:text-foreground/50 pl-5">
             <li>
-              <span className="text-foreground/90 border-b-2 border-[#91D1AE]">Next.Js</span>
+              <span className="text-foreground/90 border-b-2 border-secondary">Next.Js</span>
               <span className="text-lg"> - Full-stack React framework with SSR</span>
             </li>
             <li>
-              <span className="text-foreground/90 border-b-2 border-[#91D1AE]">Tailwind CSS</span>
+              <span className="text-foreground/90 border-b-2 border-secondary">Tailwind CSS</span>
               <span className="text-lg"> - Utility-first styling for modern UIs</span>
             </li>
             <li>
-              <span className="text-foreground/90 border-b-2 border-[#91D1AE]">Shadcn UI</span>
+              <span className="text-foreground/90 border-b-2 border-secondary">Shadcn UI</span>
               <span className="text-lg"> - Accessible component library built on Radix</span>
             </li>
             <li>
-              <span className="text-foreground/90 border-b-2 border-[#91D1AE]">Spring Boot</span>
+              <span className="text-foreground/90 border-b-2 border-secondary">Spring Boot</span>
               <span className="text-lg"> - Backend framework for building robust and production-ready REST APIs</span>
             </li>
             <li>
-              <span className="text-foreground/90 border-b-2 border-[#91D1AE]">PostgreSQL (Neon)</span>
+              <span className="text-foreground/90 border-b-2 border-secondary">PostgreSQL (Neon)</span>
               <span className="text-lg"> - Cloud-hosted relational database with branch-based workflows and auto-scaling</span>
             </li>
             <li>
-              <span className="text-foreground/90 border-b-2 border-[#91D1AE]">Redis</span>
+              <span className="text-foreground/90 border-b-2 border-secondary">Redis</span>
               <span className="text-lg"> - In-memory data store for caching, session management, and performance optimization</span>
             </li>
             <li>
-              <span className="text-foreground/90 border-b-2 border-[#91D1AE]">NextAuth.js</span>
+              <span className="text-foreground/90 border-b-2 border-secondary">NextAuth.js</span>
               <span className="text-lg"> - Authentication solution with OAuth and credentials support for secure user access</span>
             </li>
           </ul>
@@ -144,7 +144,7 @@ const Grocereach = () => {
             Challenges & Learnings
           </p>
           <div className="flex gap-2 w-full items-stretch mt-2">
-            <div className="w-1 bg-[#91D1AE]" />
+            <div className="w-1 bg-gradient-to-b from-secondary to-primary" />
             <div className="text-2xl text-foreground/60 flex flex-col gap-4 py-2">
               <div className="flex flex-col">
                 <span className="text-foreground/90 font-medium">

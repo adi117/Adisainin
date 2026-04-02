@@ -114,16 +114,16 @@ const ResumePage = () => {
         <Experiences />
       </div>
       {/* divider */}
-      <div ref={leftLine} className='h-full w-1 bg-foreground py-10' />
+      <div ref={leftLine} className='h-full w-1 bg-gradient-to-b from-primary via-secondary to-accent py-10' />
 
       <div ref={centerRef} className='w-full h-full overflow-y-scroll max-h-full hide-scrollbar pb-10'>
         <div className="flex flex-col gap-5 h-fit mb-5">
-          <h2 className="card text-3xl font-semibold shrink-0">Expertise</h2>
-          <p className='card font-medium text-xl pb-3 border-b-[1px] border-solid border-foreground'>UI/UX, Interaction Design, Design Systems, Frontend Dev, Fullstack Dev, Prototyping, Visual Design, Responsive UI, Code Architecture, Design Thinking.</p>
+          <h2 className="card text-3xl font-semibold shrink-0 bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent">Expertise</h2>
+          <p className='card font-medium text-xl pb-3 border-b-[1px] border-solid border-secondary/40 bg-gradient-to-r from-secondary/5 to-accent/5 px-4 py-3 rounded-lg'>UI/UX, Interaction Design, Design Systems, Frontend Dev, Fullstack Dev, Prototyping, Visual Design, Responsive UI, Code Architecture, Design Thinking.</p>
         </div>
         <div className="flex flex-col gap-5 h-fit mb-5">
-          <h2 className="card text-3xl font-semibold shrink-0">Hardskill</h2>
-          <div className='card flex flex-col gap-6 p-3 rounded-4xl bg-foreground'>
+          <h2 className="card text-3xl font-semibold shrink-0 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Hardskill</h2>
+          <div className='card flex flex-col gap-6 p-3 rounded-4xl bg-gradient-to-br from-primary/20 via-secondary/10 to-accent/20 border-[1px] border-primary/30'>
             <Image
               src={LaptopImage}
               alt='Laptop Image'
@@ -162,7 +162,7 @@ const ResumePage = () => {
         </div>
       </div>
       {/* divider */}
-      <div ref={rightLine} className='h-full w-1 bg-foreground py-10' />
+      <div ref={rightLine} className='h-full w-1 bg-gradient-to-b from-accent via-secondary to-primary py-10' />
       <div ref={rightRef} className="w-full">
         <Educations />
       </div>
