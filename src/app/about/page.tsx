@@ -22,21 +22,30 @@ const AboutPage = () => {
       const q = gsap.utils.selector(introductionRef);
       const tl = gsap.timeline({ defaults: { ease: "power3.inOut" } });
 
-      tl.from(introductionRef.current, { y: 100, opacity: 0, duration: 1 });
+      tl.from(introductionRef.current, { y: 100, opacity: 0, duration: 1.2 });
       tl.from(q(".card"), {
         y: 60,
         opacity: 0,
-        duration: 1,
-        stagger: 0.8,
-      }, "-=0.5");
+        duration: 1.2,
+        stagger: 0.12,
+      }, "-=0.6");
     }, introductionRef);
 
     const imageCtx = gsap.context(() => {
-      gsap.from(imageRef.current, {
+      const tl = gsap.timeline({ defaults: { ease: "power3.inOut" } });
+      tl.from(imageRef.current, {
         y: 200,
         opacity: 0,
         duration: 2,
-        ease: "power3.inOut"
+      });
+      
+      // Add subtle floating animation
+      gsap.to(imageRef.current, {
+        y: 10,
+        duration: 3,
+        yoyo: true,
+        repeat: -1,
+        ease: "sine.inOut",
       });
     })
 
@@ -50,22 +59,23 @@ const AboutPage = () => {
     <div className="flex gap-9 px-4 overflow-hidden" style={{ height: "calc(100vh - 160px)" }}>
       <div
         ref={imageRef}
-        className="relative w-2/5"
+        className="relative w-2/5 group"
         style={{ height: "100%" }}
       >
+        <div className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent rounded-4xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-xl" />
         <Image
           src={ProfilePhoto}
           alt="Profile Photo"
           priority
-          className="w-full h-full object-cover rounded-4xl"
+          className="w-full h-full object-cover rounded-4xl border-2 border-primary/30 group-hover:border-primary/60 transition-all duration-300"
         />
-        <div className="font-medium text-background flex flex-col absolute left-7 top-7">
-          <p className="text-2xl">Hello,</p>
-          <p className="text-7xl">
+        <div className="font-medium text-foreground flex flex-col absolute left-7 top-7 z-10">
+          <p className="text-2xl font-light">Hello,</p>
+          <p className="text-7xl font-bold bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent">
             I&apos;m Adi
           </p>
         </div>
-        <div className="text-sm text-background absolute right-7 bottom-7 text-right w-[400px]">
+        <div className="text-sm text-foreground/80 absolute right-7 bottom-7 text-right w-[400px] bg-background/50 backdrop-blur-sm p-4 rounded-2xl border-[1px] border-primary/20 z-10">
           A fullstack developer with a creative mindset. Detail-oriented, adaptable,
           and a bit of a perfectionist, I thrive on collaboration, clear
           communication, and solving problems with both logic and creativity.
@@ -75,10 +85,10 @@ const AboutPage = () => {
         <div ref={introductionRef} className="flex flex-col gap-10">
           {/* Introduction section */}
           <Section title="Introduction">
-            <div className="card flex flex-col gap-9 px-8 py-3 border-[1px] border-solid border-[#747474] rounded-[36px]">
-              <h2 className="text-[40px] font-semibold">A wizard based in Surakarta</h2>
+            <div className="card flex flex-col gap-9 px-8 py-3 border-[1px] border-solid border-primary/30 rounded-[36px] bg-gradient-to-br from-primary/5 to-transparent hover:border-primary/60 transition-all duration-300">
+              <h2 className="text-[40px] font-semibold bg-gradient-to-r from-foreground to-secondary/80 bg-clip-text text-transparent">A wizard based in Surakarta</h2>
               <div className="flex relative">
-                <p className="opacity-50 pr-44 font-medium">
+                <p className="opacity-70 pr-44 font-medium text-foreground/80">
                   Once a UI/UX spellcaster, now a fullstack wizard—I craft seamless digital experiences from pixel to production. With roots in world and interaction design, I blend creative vision with technical precision to build products that are as powerful as they are beautiful.
                   <br />
                   <br />
@@ -88,13 +98,13 @@ const AboutPage = () => {
                   src={WizardHat}
                   alt="Wizard Hat"
                   priority
-                  className="w-40 h-40 object-cover absolute right-0 bottom-0"
+                  className="w-40 h-40 object-cover absolute right-0 bottom-0 opacity-80"
                 />
               </div>
             </div>
           </Section>
           {/* divider line */}
-          <div className="w-full bg-[#747474] h-[1px]" />
+          <div className="w-full bg-gradient-to-r from-primary via-secondary to-accent h-[1px]" />
           <div className="card">
             {/* contact card */}
             <Section title="Get In Touch">
@@ -103,20 +113,22 @@ const AboutPage = () => {
                   href="mailto:muhammadiwicaksono@gmail.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="card w-full bg-[#874FD4] flex flex-col gap-14 p-5 rounded-3xl hover:shadow-[0_0_0_4px_rgba(135,79,212,0.25)] transition-shadow duration-200 hover:cursor-pointer relative overflow-hidden">
+                  className="contact-card w-full bg-gradient-to-br from-primary to-primary/80 flex flex-col gap-14 p-5 rounded-3xl hover:shadow-[0_0_0_8px_rgba(107,70,193,0.2)] transition-all duration-300 hover:cursor-pointer relative overflow-hidden group">
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-secondary/20 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <Image
                     src={GoogleLogo}
                     alt="Google Logo"
                     width={48}
                     height={48}
+                    className="relative z-10"
                   />
                   <div className="flex flex-col gap-3 relative z-10">
                     <div className="flex items-center">
-                      <div className="rounded-full h-1.5 w-1.5 bg-background" />
-                      <div className="w-full h-[1px] bg-background" />
-                      <div className="rounded-full h-1.5 w-1.5 bg-background" />
+                      <div className="rounded-full h-1.5 w-1.5 bg-foreground" />
+                      <div className="w-full h-[1px] bg-foreground" />
+                      <div className="rounded-full h-1.5 w-1.5 bg-foreground" />
                     </div>
-                    <p className="text-background font-medium w-full text-right">muhammadiwicaksono@gmail.com</p>
+                    <p className="text-foreground font-medium w-full text-right">muhammadiwicaksono@gmail.com</p>
                   </div>
 
                   <Image
@@ -124,27 +136,29 @@ const AboutPage = () => {
                     alt="Vector shape"
                     width={200}
                     height={200}
-                    className="absolute -right-10 -bottom-15 z-0"
+                    className="absolute -right-10 -bottom-15 z-0 opacity-20 group-hover:opacity-40 transition-opacity duration-300"
                   />
                 </a>
                 <a
                   href="https://www.linkedin.com/in/muhammad-adi-wicaksono/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="card w-full bg-[#91D1AE] flex flex-col gap-14 p-5 rounded-3xl hover:shadow-[0_0_0_4px_rgba(145,209,174,0.25)] transition-shadow duration-200 hover:cursor-pointer relative overflow-hidden">
+                  className="contact-card w-full bg-gradient-to-br from-secondary to-secondary/80 flex flex-col gap-14 p-5 rounded-3xl hover:shadow-[0_0_0_8px_rgba(16,185,129,0.2)] transition-all duration-300 hover:cursor-pointer relative overflow-hidden group">
+                  <div className="absolute inset-0 bg-gradient-to-r from-secondary/0 via-accent/20 to-secondary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <Image
                     src={Linkedinlogo}
                     alt="LinkedIn Logo"
                     width={48}
                     height={48}
+                    className="relative z-10"
                   />
-                  <div className="flex flex-col gap-3">
+                  <div className="flex flex-col gap-3 relative z-10">
                     <div className="flex items-center">
-                      <div className="rounded-full h-1.5 w-1.5 bg-[#215441]" />
-                      <div className="w-full h-[1px] bg-[#215441]" />
-                      <div className="rounded-full h-1.5 w-1.5 bg-[#215441]" />
+                      <div className="rounded-full h-1.5 w-1.5 bg-neutral-dark" />
+                      <div className="w-full h-[1px] bg-neutral-dark" />
+                      <div className="rounded-full h-1.5 w-1.5 bg-neutral-dark" />
                     </div>
-                    <p className="text-[#215441] font-medium w-full text-right">Muhammad Adi Wicaksono</p>
+                    <p className="text-neutral-dark font-medium w-full text-right">Muhammad Adi Wicaksono</p>
                   </div>
 
                   <Image
@@ -152,27 +166,28 @@ const AboutPage = () => {
                     alt="Vector shape"
                     width={100}
                     height={100}
-                    className="absolute -top-5 right-0"
+                    className="absolute -top-5 right-0 z-0 opacity-20 group-hover:opacity-40 transition-opacity duration-300"
                   />
                 </a>
                 <a
                   href="https://github.com/adi117"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="card w-full bg-transparent flex flex-col gap-14 p-5 rounded-3xl border-[1px] border-solid border-foreground hover:shadow-[0_0_0_4px_rgba(48,41,48,0.25)] transition-shadow duration-200 hover:cursor-pointer">
+                  className="contact-card w-full bg-transparent flex flex-col gap-14 p-5 rounded-3xl border-[1px] border-solid border-accent/50 hover:border-accent hover:shadow-[0_0_0_8px_rgba(6,182,212,0.1)] transition-all duration-300 hover:cursor-pointer group">
                   <Image
                     src={GithubLogo}
                     alt="GitHub Logo"
                     width={48}
                     height={48}
+                    className="group-hover:text-accent transition-colors duration-300"
                   />
                   <div className="flex flex-col gap-3">
                     <div className="flex items-center">
-                      <div className="rounded-full h-1.5 w-1.5 bg-foreground" />
-                      <div className="w-full h-[1px] bg-foreground" />
-                      <div className="rounded-full h-1.5 w-1.5 bg-foreground" />
+                      <div className="rounded-full h-1.5 w-1.5 bg-accent/60 group-hover:bg-accent transition-colors duration-300" />
+                      <div className="w-full h-[1px] bg-accent/30 group-hover:bg-accent/60 transition-colors duration-300" />
+                      <div className="rounded-full h-1.5 w-1.5 bg-accent/60 group-hover:bg-accent transition-colors duration-300" />
                     </div>
-                    <p className="text-foreground font-medium w-full text-right">github.com/adi117</p>
+                    <p className="text-foreground/80 group-hover:text-accent font-medium w-full text-right transition-colors duration-300">github.com/adi117</p>
                   </div>
                 </a>
               </div>
