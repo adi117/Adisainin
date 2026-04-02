@@ -35,7 +35,6 @@ const WorkPage = () => {
       tl.from(leftRef.current, { y: 100, opacity: 0, duration: 1 });
       tl.from(q(".card"), {
         y: 60,
-        opacity: 0,
         duration: 1,
         stagger: 0.2,
       }, "-=0.5");

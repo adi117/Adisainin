@@ -110,7 +110,7 @@ const ResumePage = () => {
   }, []);
 
   return (
-    <div className="w-full h-full flex flex-col">
+    <div className="w-full h-full flex flex-col mt-6">
       {/* Mobile Tabs */}
       <div className="md:hidden flex gap-2 px-4 py-3 border-b-[1px] border-[#2D2D2D] bg-background/50 backdrop-blur-sm sticky top-0 z-10">
         {['expertise', 'education', 'experience'].map((tab) => (

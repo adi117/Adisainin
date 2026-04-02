@@ -32,7 +32,7 @@ const Navbar = ({ setMenu }: { setMenu: (val: string) => void }) => {
 
   return (
     <>
-      <div ref={navRef} className="w-full flex gap-6 md:gap-12 px-4 md:px-8 border-b-[1px] border-solid border-[#2D2D2D] backdrop-blur-sm bg-background/80">
+      <div ref={navRef} className="w-full flex items-center justify-center gap-6 md:gap-12 px-4 md:px-8 border-b-[1px] border-solid border-[#2D2D2D] backdrop-blur-sm bg-background/80">
         <Image
           src={adisaininLogo}
           alt="Adisainin Logo"

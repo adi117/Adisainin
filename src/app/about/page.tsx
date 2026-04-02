@@ -22,22 +22,23 @@ const AboutPage = () => {
       const q = gsap.utils.selector(introductionRef);
       const tl = gsap.timeline({ defaults: { ease: "power3.inOut" } });
 
-      tl.from(introductionRef.current, { y: 100, opacity: 0, duration: 1.2 });
-      tl.from(q(".card"), {
-        y: 60,
-        opacity: 0,
-        duration: 1.2,
-        stagger: 0.12,
-      }, "-=0.6");
+      tl.fromTo(introductionRef.current,
+        { y: 100, autoAlpha: 0 },       // autoAlpha instead of opacity
+        { y: 0, autoAlpha: 1, duration: 1 }
+      );
+      tl.fromTo(q(".card"),
+        { y: 60, autoAlpha: 0 },
+        { y: 0, autoAlpha: 1, duration: 1, stagger: 0 },
+        "-=1"
+      );
     }, introductionRef);
 
     const imageCtx = gsap.context(() => {
       const tl = gsap.timeline({ defaults: { ease: "power3.inOut" } });
-      tl.from(imageRef.current, {
-        y: 200,
-        opacity: 0,
-        duration: 2,
-      });
+      tl.fromTo(imageRef.current,
+        { y: 200, autoAlpha: 0 },       // autoAlpha instead of opacity
+        { y: 0, autoAlpha: 1, duration: 2 }
+      );
     })
 
     return () => {
@@ -47,10 +48,11 @@ const AboutPage = () => {
   }, [])
 
   return (
-    <div className="flex flex-col md:flex-row gap-6 md:gap-9 px-4 md:px-6 lg:px-8 overflow-hidden w-full" style={{ height: "calc(100vh - 160px)" }}>
+    <div className="flex flex-col md:flex-row gap-6 md:gap-9 px-4 md:px-6 lg:px-8 overflow-hidden w-full mt-6" style={{ height: "calc(100vh - 160px)" }}>
       <div
         ref={imageRef}
         className="relative w-full md:w-2/5 h-64 md:h-full group"
+        style={{ opacity: 0 }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent rounded-4xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-xl" />
         <Image
@@ -65,14 +67,14 @@ const AboutPage = () => {
             I&apos;m Adi
           </p>
         </div>
-        <div className="hidden md:block text-sm text-foreground/80 absolute right-7 bottom-7 text-right w-[400px] bg-background/50 backdrop-blur-sm p-4 rounded-2xl border-[1px] border-primary/20 z-10">
+        <div className="hidden md:block w-full lg:max-w-[75%] text-sm text-foreground/80 absolute right-7 bottom-7 text-right bg-background/50 backdrop-blur-sm p-3 lg:p-4 rounded-2xl border-[1px] border-primary/20 z-10">
           A fullstack developer with a creative mindset. Detail-oriented, adaptable,
           and a bit of a perfectionist, I thrive on collaboration, clear
           communication, and solving problems with both logic and creativity.
         </div>
       </div>
       <div className="w-full md:w-3/5 h-auto md:h-full overflow-y-auto max-h-full hide-scrollbar pb-10">
-        <div ref={introductionRef} className="flex flex-col gap-10">
+        <div ref={introductionRef} className="flex flex-col gap-10" style={{ opacity: 0 }}>
           {/* Introduction section */}
           <Section title="Introduction">
             <div className="card flex flex-col gap-6 md:gap-9 px-4 md:px-8 py-3 border-[1px] border-solid border-primary/30 rounded-2xl md:rounded-[36px] bg-gradient-to-br from-primary/5 to-transparent hover:border-primary/60 transition-all duration-300">

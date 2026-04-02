@@ -11,7 +11,7 @@ const Educations = () => {
 
           <div className="flex flex-col text-neutral-dark font-medium">
             <p className="text-xl opacity-70">Bootcamp</p>
-            <p className="text-2xl font-bold">
+            <p className="text-2xl font-bold line-clamp-2">
               Software Engineering/
               <br />
               Purwadhika DTI
@@ -35,7 +35,7 @@ const Educations = () => {
           <p className='text-foreground bg-primary/30 font-semibold px-2 py-0.5 rounded-full w-fit'>2023-2024</p>
           <div className='flex flex-col text-foreground font-medium'>
             <p className='text-xl opacity-70'>Bootcamp</p>
-            <p className='text-2xl font-bold'>
+            <p className='text-2xl font-bold line-clamp-2'>
               My Digital Academy/
               <br />
               Bank Mandiri
@@ -58,7 +58,7 @@ const Educations = () => {
           <p className='text-foreground bg-primary/40 font-semibold px-2 py-0.5 rounded-full w-fit'>2019-2023</p>
           <div className='flex flex-col text-foreground font-medium'>
             <p className='text-xl opacity-70'>Bachelor Degree</p>
-            <p className='text-2xl font-bold'>
+            <p className='text-2xl font-bold line-clamp-2'>
               Information System/
               <br />
               Brawijaya University
