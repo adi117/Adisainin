@@ -115,7 +115,7 @@ const WorkPage = () => {
 
       {/* Mobile List View */}
       <div className="md:hidden w-full h-full flex flex-col overflow-hidden -mx-4">
-        {selectedPortfolio === portfolioList[0].title && !selectedPortfolio ? (
+        {!selectedPortfolio ? (
           <div className="w-full h-full overflow-y-auto hide-scrollbar p-4 mx-4">
             <h2 className="text-2xl font-semibold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">My Works</h2>
             <div className="space-y-3">

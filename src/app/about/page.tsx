@@ -163,7 +163,8 @@ const AboutPage = () => {
                     alt="Vector shape"
                     width={100}
                     height={100}
-                    className="absolute -top-5 right-0 z-0 opacity-20 group-hover:opacity-40 transition-opacity duration-300 w-auto h-auto"
+                    className="absolute -top-5 right-0 z-0 opacity-20 group-hover:opacity-40 transition-opacity duration-300"
+                    style={{ width: 'auto', height: 'auto' }}
                   />
                 </a>
                 <a
@@ -176,7 +177,8 @@ const AboutPage = () => {
                     alt="GitHub Logo"
                     width={48}
                     height={48}
-                    className="group-hover:text-accent transition-colors duration-300 w-auto h-auto"
+                    className="group-hover:text-accent transition-colors duration-300"
+                    style={{ width: 'auto', height: 'auto' }}
                   />
                   <div className="flex flex-col gap-3">
                     <div className="flex items-center">
