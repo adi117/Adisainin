@@ -70,21 +70,27 @@ const Navbar = ({ setMenu }: { setMenu: (val: string) => void }) => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Fixed Overlay */}
       {mobileMenuOpen && (
-        <div className="md:hidden w-full bg-background/95 backdrop-blur-sm border-b-[1px] border-[#2D2D2D] animate-slide-in-top">
-          <div className="flex flex-col gap-0 px-4 py-4">
-            {menu.map((tab) => (
-              <button
-                key={tab}
-                onClick={() => handleMenuClick(tab)}
-                className="text-left py-3 px-4 text-foreground/80 hover:text-foreground hover:bg-primary/10 rounded-lg transition-all duration-300 border-l-2 border-transparent hover:border-secondary"
-              >
-                {tab}
-              </button>
-            ))}
+        <>
+          <div 
+            className="fixed inset-0 bg-black/40 md:hidden z-40"
+            onClick={() => setMobileMenuOpen(false)}
+          />
+          <div className="fixed top-16 left-0 right-0 md:hidden w-full bg-background backdrop-blur-sm border-b-[1px] border-[#2D2D2D] animate-slide-in-top z-50 max-h-[calc(100vh-64px)] overflow-y-auto">
+            <div className="flex flex-col gap-0 px-4 py-4">
+              {menu.map((tab) => (
+                <button
+                  key={tab}
+                  onClick={() => handleMenuClick(tab)}
+                  className="text-left py-3 px-4 text-foreground/80 hover:text-foreground hover:bg-primary/10 rounded-lg transition-all duration-300 border-l-2 border-transparent hover:border-secondary"
+                >
+                  {tab}
+                </button>
+              ))}
+            </div>
           </div>
-        </div>
+        </>
       )}
     </>
   )

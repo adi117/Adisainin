@@ -47,10 +47,10 @@ const AboutPage = () => {
   }, [])
 
   return (
-    <div className="flex flex-col md:flex-row gap-6 md:gap-9 px-4 md:px-6 lg:px-8 overflow-hidden w-full" style={{ height: "calc(100vh - 160px)" }}>
+    <div className="flex flex-col md:flex-row gap-6 md:gap-9 px-4 md:px-6 lg:px-8 overflow-hidden w-full h-full">
       <div
         ref={imageRef}
-        className="relative w-full md:w-2/5 h-64 md:h-full group"
+        className="relative w-full md:w-2/5 h-64 md:h-full flex-shrink-0 group"
       >
         <div className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent rounded-4xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-xl" />
         <Image

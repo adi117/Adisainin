@@ -71,12 +71,12 @@ const WorkPage = () => {
   }, [selectedPortfolio]);
 
   return (
-    <div className="w-full h-full flex flex-col md:flex-row text-left justify-end items-center">
+    <div className="w-full h-full flex flex-col md:flex-row text-left justify-end items-center px-4 md:px-6 lg:px-8">
       {/* Desktop Layout */}
       <Tabs
         value={selectedPortfolio}
         onValueChange={setSelectedPortfolio}
-        className="hidden md:flex w-full h-full relative flex-col md:flex-row px-4 md:px-6 lg:px-8">
+        className="hidden md:flex w-full h-full relative flex-col md:flex-row">
         <div className="w-full md:w-1/4 h-auto md:h-10/12 overflow-y-auto md:overflow-y-scroll hide-scrollbar">
           <TabsList ref={leftRef} className="flex md:flex-col gap-2 w-full items-start justify-start overflow-x-auto md:overflow-y-scroll hide-scrollbar">
             {portfolioList.map((portfolio) => (
@@ -114,9 +114,9 @@ const WorkPage = () => {
       </Tabs>
 
       {/* Mobile List View */}
-      <div className="md:hidden w-full h-full flex flex-col overflow-hidden">
-        {!selectedPortfolio ? (
-          <div className="w-full h-full overflow-y-auto hide-scrollbar p-4">
+      <div className="md:hidden w-full h-full flex flex-col overflow-hidden -mx-4">
+        {selectedPortfolio === portfolioList[0].title && !selectedPortfolio ? (
+          <div className="w-full h-full overflow-y-auto hide-scrollbar p-4 mx-4">
             <h2 className="text-2xl font-semibold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">My Works</h2>
             <div className="space-y-3">
               {portfolioList.map((portfolio) => (
@@ -147,19 +147,48 @@ const WorkPage = () => {
           <div className="w-full h-full flex flex-col">
             <button
               onClick={() => setSelectedPortfolio(portfolioList[0].title)}
-              className="px-4 py-3 bg-background/50 border-b-[1px] border-[#2D2D2D] text-foreground/80 hover:text-foreground transition-colors duration-300"
+              className="py-3 bg-background/50 border-b-[1px] border-[#2D2D2D] text-foreground/80 hover:text-foreground transition-colors duration-300 px-4 mx-4"
             >
               ← Back to Works
             </button>
-            <div className="flex-1 overflow-y-auto hide-scrollbar p-4">
-              {selectedPortfolio === "Purwafest"
-                ? <Purwafest />
-                : selectedPortfolio === "Grocereach"
-                  ? <Grocereach />
-                  : selectedPortfolio === "Mai Home"
-                    ? <MaiHome />
-                    : selectedPortfolio === "Java Auth"
-                    && <JavaAuth />}
+            <div className="flex-1 overflow-y-auto hide-scrollbar p-4 mx-4 flex flex-col gap-4">
+              {/* Show project list cards */}
+              <div className="space-y-3 mb-6">
+                {portfolioList.filter(p => p.title !== selectedPortfolio).map((portfolio) => (
+                  <button
+                    key={portfolio.title}
+                    onClick={() => setSelectedPortfolio(portfolio.title)}
+                    className="w-full text-left p-3 rounded-lg border-[1px] border-primary/20 bg-gradient-to-br from-primary/5 to-transparent hover:from-primary/15 hover:border-primary/60 transition-all duration-300"
+                  >
+                    <div className="flex gap-3 items-center">
+                      <Image
+                        src={portfolio.imageSrc}
+                        alt={portfolio.title}
+                        width={60}
+                        height={60}
+                        className='w-16 h-16 object-cover rounded-lg flex-shrink-0'
+                      />
+                      <div className="flex-1 min-w-0">
+                        <p className="text-base font-semibold text-foreground truncate">{portfolio.title}</p>
+                        <p className="text-xs text-secondary font-medium">{portfolio.role}</p>
+                      </div>
+                    </div>
+                  </button>
+                ))}
+              </div>
+
+              {/* Show detailed project info */}
+              <div className="border-t-[1px] border-primary/20 pt-4">
+                <h3 className="text-lg font-semibold mb-3 text-foreground">{selectedPortfolio}</h3>
+                {selectedPortfolio === "Purwafest"
+                  ? <Purwafest />
+                  : selectedPortfolio === "Grocereach"
+                    ? <Grocereach />
+                    : selectedPortfolio === "Mai Home"
+                      ? <MaiHome />
+                      : selectedPortfolio === "Java Auth"
+                      && <JavaAuth />}
+              </div>
             </div>
           </div>
         )}
