@@ -13,23 +13,30 @@ export default function Home() {
   const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (!contentRef.current) return;
+
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ defaults: { ease: "power2.inOut" } });
-      tl.to(contentRef.current, {
-        opacity: 1,
-        duration: 0.6,
-        clearProps: "all"
-      });
+      gsap.fromTo(
+        contentRef.current,
+        { opacity: 0, y: 10 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          ease: "power2.inOut",
+          clearProps: "all"
+        }
+      );
     }, contentRef);
 
     return () => ctx.revert();
   }, [menu]);
 
   return (
-    <div className="px-4 pt-2.5 flex flex-col gap-10 h-[100dvh] overflow-hidden bg-background">
+    <div className="px-4 pt-2.5 md:px-6 lg:px-8 flex flex-col gap-6 md:gap-10 w-full h-[100dvh] overflow-hidden bg-background">
       <Navbar setMenu={setMenu}/>
 
-      <div ref={contentRef} className="opacity-0">
+      <div ref={contentRef} className="flex-1 overflow-hidden">
         {menu === "About Me" && <AboutPage/>}
         {menu === "Resume" && <ResumePage/>}
         {menu === "Works" && <WorkPage/>}
